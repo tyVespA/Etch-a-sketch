@@ -3,6 +3,7 @@ const clearGridBtn = document.querySelector(".clear-grid");
 const slider = document.querySelector("#grid-size");
 let gridSizeDisplay = document.querySelector(".grid-size-display");
 let cells = grid.childNodes;
+let colorSelected;
 
 createGrid(20, 20);
 
@@ -23,17 +24,8 @@ slider.addEventListener("input", () => {
   createGrid(sliderVal, sliderVal);
 })
 
-function createGrid(rows, cols) {
-  grid.style.setProperty('--grid-rows', rows);
-  grid.style.setProperty('--grid-cols', cols);
-  for (i = 0; i < (rows * cols); i++) {
-    let cell = document.createElement("div");
-    grid.appendChild(cell);
-    cell.classList.add("grid-item-border");
-    cell.setAttribute('draggable', false);
-  };
-
-  cells = grid.childNodes;
+function selectColor () {
+  colorSelected = document.querySelector("#color-picker").value;
 }
 
 // apply color
@@ -41,19 +33,33 @@ let mouseDown = false
 grid.onmousedown = () => (mouseDown = true)
 grid.onmouseup = () => (mouseDown = false)
 
-cells.forEach((cell) => {
-  cell.addEventListener("mousedown", () => {
-    cell.style.cssText = ("background: black");
+function applyColor() {
+  cells.forEach((cell) => {
+    selectColor()
+    // applies color to the first cell clicked
+    cell.addEventListener("mousedown", () => {
+      cell.style.backgroundColor = colorSelected;
+    })
+    // applies color to all other cells while mouse btn is pressed
+    cell.addEventListener("mouseover", () => {
+      selectColor()
+      if (mouseDown == true) {
+        cell.style.backgroundColor = colorSelected;
+      }
+    })
   })
-  cell.addEventListener("mouseover", () => {
-    if (mouseDown == true) {
-      cell.style.cssText = ("background: black");
-    }
-  })
-})
+}
 
+function createGrid(rows, cols) {
+  grid.style.setProperty('--grid-rows', rows);
+  grid.style.setProperty('--grid-cols', cols);
 
+  for (i = 0; i < (rows * cols); i++) {
+    let cell = document.createElement("div");
+    grid.appendChild(cell);
+    cell.classList.add("grid-item-border");
+    cell.setAttribute('draggable', false);
+  };
 
-
-
-
+  applyColor()
+}

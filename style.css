@@ -93,7 +93,10 @@ button {
   # HEADER
 \*------------------------------------*/
 header {
-  padding: 30px;
+  max-width: 1300px;
+  width: 100%;
+  margin-inline: auto;
+  padding: 30px 30px 5px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -137,6 +140,9 @@ ul .btn-styled svg {
   # MAIN
 \*------------------------------------*/
 main {
+  max-width: 1300px;
+  width: 100%;
+  margin-inline: auto;
   height: 100%;
   display: flex;
   align-items: center;
