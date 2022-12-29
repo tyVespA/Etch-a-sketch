@@ -21,10 +21,9 @@ grid.addEventListener("drop", (e) => {
 
 // removes colors
 clearGridBtn.addEventListener("click", clearGrid);
-
 function clearGrid() {
   grid.replaceChildren();
-  createGrid(slider.value, slider.value)
+  createGrid(sliderVal, sliderVal)
 }
 
 // grabs grid size slider's value and calls createGrid passing it
