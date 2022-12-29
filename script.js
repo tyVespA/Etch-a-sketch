@@ -1,8 +1,12 @@
 const grid = document.querySelector(".grid");
 const clearGridBtn = document.querySelector(".clear-grid");
 const slider = document.querySelector("#grid-size");
+let sliderVal = slider.value;
 let gridSizeDisplay = document.querySelector(".grid-size-display");
 let cells = grid.childNodes;
+let mouseDown = false
+grid.onmousedown = () => (mouseDown = true)
+grid.onmouseup = () => (mouseDown = false)
 let colorSelected;
 
 createGrid(20, 20);
@@ -11,13 +15,21 @@ createGrid(20, 20);
 grid.addEventListener("dragstart", (e) => {
   e.preventDefault();
 })
-grid.addEventListener('drop', (e) => {
+grid.addEventListener("drop", (e) => {
   e.preventDefault();
 })
 
+// removes colors
+clearGridBtn.addEventListener("click", clearGrid);
+
+function clearGrid() {
+  grid.replaceChildren();
+  createGrid(slider.value, slider.value)
+}
+
 // grabs grid size slider's value and calls createGrid passing it
 slider.addEventListener("input", () => {
-  let sliderVal = slider.value;
+  sliderVal = slider.value;
   gridSizeDisplay.textContent = sliderVal + " x " + sliderVal;
 
   grid.replaceChildren();
@@ -29,15 +41,11 @@ function selectColor () {
 }
 
 // apply color
-let mouseDown = false
-grid.onmousedown = () => (mouseDown = true)
-grid.onmouseup = () => (mouseDown = false)
-
 function applyColor() {
   cells.forEach((cell) => {
-    selectColor()
     // applies color to the first cell clicked
     cell.addEventListener("mousedown", () => {
+      selectColor()
       cell.style.backgroundColor = colorSelected;
     })
     // applies color to all other cells while mouse btn is pressed
@@ -63,3 +71,4 @@ function createGrid(rows, cols) {
 
   applyColor()
 }
+

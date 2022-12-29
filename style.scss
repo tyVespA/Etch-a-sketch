@@ -66,9 +66,14 @@ p, h1, h2, h3, h4, h5, h6 {
 $bg: linear-gradient(to top left, #BBD4FF, #E6F2FF);
 $text: #2A3238;
 
+// :root {
+//   --grid-rows: 32;
+//   --grid-cols: 32;
+// }
 
-
-
+.white-bg {
+  background-color: white;
+}
 
 
 /*------------------------------------*\
@@ -147,17 +152,6 @@ ul {
     }
   }
 }
-
-//variables
-
-:root {
-  --grid-rows: 32;
-  --grid-cols: 32;
-}
-
-
-
-
 
 /*------------------------------------*\
   # MAIN
