@@ -54,16 +54,15 @@
 
     <main>
       <div class="main-content">
-        <div class="buttons">
-          <div class="color-picker-container"><input type="color" name="" id=""></div>
-
-          <button class="clear-grid">Clear grid</button>
-
-          <div class="range-container">
-            <label for="grid-size" class="grid-size-label"><span>Grid size:</span> <span class="grid-size-display">32 x 32</span></label>
-            <input type="range" id="grid-size" name="grid-siz" min="1" max="64" value="4">
-          </div>
-          
+        <div class="buttons-container">
+            <div class="color-picker-container">
+              <label for="color-picker">Color picker:</label>
+              <input type="color" name="color-picker" id="color-picker"></div>
+              <div class="range-container">
+                <label for="grid-size" class="grid-size-label"><span>Grid size:</span> <span class="grid-size-display">20 x 20</span></label>
+                <input type="range" id="grid-size" name="grid-siz" min="1" max="40" value="20" autocomplete="off">
+              </div>
+              <button class="clear-grid">Clear grid</button>
         </div>
 
         <div class="grid-container">

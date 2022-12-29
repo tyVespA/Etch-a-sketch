@@ -148,8 +148,8 @@ ul {
 //variables
 
 :root {
-  --grid-rows: 1;
-  --grid-cols: 1;
+  --grid-rows: 32;
+  --grid-cols: 32;
 }
 
 
@@ -160,13 +160,6 @@ ul {
   # MAIN
 \*------------------------------------*/
 
-// .main-and-footer-container {
-//   height: calc(100% - 109px);
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-// }
-
 main {
   height: 100%;
   display: flex;
@@ -175,12 +168,11 @@ main {
 }
 
 .main-content {
-  border: 1px solid pink;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2fr 1fr;
   width: 100%;
 
-  .buttons {
+  .buttons-container {
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -191,7 +183,7 @@ main {
     .color-picker-container {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 10px;
       cursor: pointer;
 
       img {
@@ -220,19 +212,21 @@ main {
   }
 
   .grid-container {
-  // border: 1px solid black;
 
     .grid {
-      background-color: white;
       margin-inline: auto;
+      border-right: 1px solid rgb(202, 202, 202);
+      border-bottom: 1px solid rgb(202, 202, 202);
+      background-color: white;
       display: grid;
-      width: 500px;
-      height: 500px;
-      grid-template-columns: repeat(var(--grid-cols), 1fr);
+      width: 600px;
+      height: 600px;
       grid-template-rows: repeat(var(--grid-rows), 1fr);
+      grid-template-columns: repeat(var(--grid-cols), 1fr);
 
-      .grid-item {
-        border: 1px solid rgb(202, 202, 202);
+      .grid-item-border {
+        border-top: 1px solid rgb(202, 202, 202);
+        border-left: 1px solid rgb(202, 202, 202);
       }
     }
   }
