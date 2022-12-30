@@ -71,9 +71,13 @@ $text: #2A3238;
 //   --grid-cols: 32;
 // }
 
-.white-bg {
-  background-color: white;
-}
+// .white-bg {
+//   background-color: white;
+// }
+
+
+
+
 
 
 /*------------------------------------*\
@@ -147,9 +151,21 @@ ul {
     color: white;
     padding: 15px 30px;
     border-radius: 50px;
-    svg {
-      fill: white;
+    transition: 0.3s;
+    fill: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      background-color: white;
+      color: $text;
+      fill: $text;
+      transform: translateY(-3px);
     }
+
+    &:active {
+      transform: translateY(3px);
+    }  
   }
 }
 
@@ -230,6 +246,42 @@ main {
       }
     }
   }
+}
+
+.btn-styled-two {
+  border: transparent;
+  background-color: $text;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+    color: $text;
+    fill: $text;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+}
+
+.rainbow-mode {
+  font-weight: 600;
+  background-color: white;
+  color: $text;
+}
+
+.rainbow-mode.active {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-image: linear-gradient(to bottom right, rgba(255, 0, 0, 0.521),rgba(255, 166, 0, 0.466),rgba(255, 255, 0, 0.5),rgba(0, 128, 0, 0.486),rgba(0, 0, 255, 0.486),rgba(76, 0, 130, 0.507),rgba(238, 130, 238, 0.486));
+  background-color: transparent;
+  transform: translateY(2px);
 }
 
 

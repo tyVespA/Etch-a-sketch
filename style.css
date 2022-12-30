@@ -63,10 +63,6 @@ p, h1, h2, h3, h4, h5, h6 {
 /*------------------------------------*\
   # VARIABLES
 \*------------------------------------*/
-.white-bg {
-  background-color: white;
-}
-
 /*------------------------------------*\
   # TYPOGRAPHY AND BASE STYLES
 \*------------------------------------*/
@@ -130,9 +126,19 @@ ul .btn-styled {
   color: white;
   padding: 15px 30px;
   border-radius: 50px;
-}
-ul .btn-styled svg {
+  transition: 0.3s;
   fill: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+ul .btn-styled:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+  color: #2A3238;
+  fill: #2A3238;
+  transform: translateY(-3px);
+}
+ul .btn-styled:active {
+  transform: translateY(3px);
 }
 
 /*------------------------------------*\
@@ -199,6 +205,39 @@ main {
 .main-content .grid-container .grid .grid-item-border {
   border-top: 1px solid rgb(202, 202, 202);
   border-left: 1px solid rgb(202, 202, 202);
+}
+
+.btn-styled-two {
+  border: transparent;
+  background-color: #2A3238;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.btn-styled-two:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+  color: #2A3238;
+  fill: #2A3238;
+  transform: translateY(-2px);
+}
+.btn-styled-two:active {
+  transform: translateY(2px);
+}
+
+.rainbow-mode {
+  font-weight: 600;
+  background-color: white;
+  color: #2A3238;
+}
+
+.rainbow-mode.active {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-image: linear-gradient(to bottom right, rgba(255, 0, 0, 0.521), rgba(255, 166, 0, 0.466), rgba(255, 255, 0, 0.5), rgba(0, 128, 0, 0.486), rgba(0, 0, 255, 0.486), rgba(76, 0, 130, 0.507), rgba(238, 130, 238, 0.486));
+  background-color: transparent;
+  transform: translateY(2px);
 }
 
 /*------------------------------------*\

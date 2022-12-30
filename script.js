@@ -1,13 +1,15 @@
-const grid = document.querySelector(".grid");
-const clearGridBtn = document.querySelector(".clear-grid");
+const rainbowModeBtn = document.querySelector(".rainbow-mode");
 const slider = document.querySelector("#grid-size");
 let sliderVal = slider.value;
+const clearGridBtn = document.querySelector(".clear-grid");
+const grid = document.querySelector(".grid");
 let gridSizeDisplay = document.querySelector(".grid-size-display");
 let cells = grid.childNodes;
 let mouseDown = false
 grid.onmousedown = () => (mouseDown = true)
 grid.onmouseup = () => (mouseDown = false)
 let colorSelected;
+let rainbowMode = false;
 
 createGrid(20, 20);
 
@@ -19,12 +21,27 @@ grid.addEventListener("drop", (e) => {
   e.preventDefault();
 })
 
-// removes colors
-clearGridBtn.addEventListener("click", clearGrid);
-function clearGrid() {
-  grid.replaceChildren();
-  createGrid(sliderVal, sliderVal)
+function selectColor () {
+  if (rainbowMode == false) {
+    colorSelected = document.querySelector("#color-picker").value;
+  } else {
+    colorSelected = getRandomColor()
+  }
 }
+
+function getRandomColor () {
+  return '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
+}
+
+rainbowModeBtn.addEventListener("click", () => {
+  if (rainbowMode == false) {
+    rainbowMode = true
+    rainbowModeBtn.classList.add("active");
+  } else {
+    rainbowMode = false
+    rainbowModeBtn.classList.remove("active");
+  }
+})
 
 // grabs grid size slider's value and calls createGrid passing it
 slider.addEventListener("input", () => {
@@ -35,8 +52,11 @@ slider.addEventListener("input", () => {
   createGrid(sliderVal, sliderVal);
 })
 
-function selectColor () {
-  colorSelected = document.querySelector("#color-picker").value;
+// removes colors
+clearGridBtn.addEventListener("click", clearGrid);
+function clearGrid() {
+  grid.replaceChildren();
+  createGrid(sliderVal, sliderVal)
 }
 
 // apply color
