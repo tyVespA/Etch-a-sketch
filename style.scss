@@ -245,6 +245,18 @@ main {
       height: 600px;
       grid-template-rows: repeat(var(--grid-rows), 1fr);
       grid-template-columns: repeat(var(--grid-cols), 1fr);
+      position: relative;
+
+      &::after {
+        content: "";
+        border-radius: 20px;
+        z-index: -1;
+        position: absolute;
+        bottom: 0; top: 0; right: 0; left: 0;
+        background-color: #afc9ff;
+        transform: scale(1.1);
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
 
       .grid-item-border {
         border-top: 1px solid rgb(202, 202, 202);
