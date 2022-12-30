@@ -35,10 +35,10 @@ function getRandomColor () {
 
 rainbowModeBtn.addEventListener("click", () => {
   if (rainbowMode == false) {
-    rainbowMode = true
+    rainbowMode = true;
     rainbowModeBtn.classList.add("active");
   } else {
-    rainbowMode = false
+    rainbowMode = false;
     rainbowModeBtn.classList.remove("active");
   }
 })

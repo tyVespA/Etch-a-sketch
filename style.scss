@@ -189,12 +189,18 @@ main {
   width: 100%;
 
   .buttons-container {
-    padding: 20px;
+    font-weight: 600;
+    padding: 30px 20px 40px 20px;
+    border-radius: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-self: center;
+    justify-self: start;
     gap: 30px;
+    background-color: #d5e3ff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
     .color-picker-container {
       display: flex;
@@ -254,8 +260,9 @@ main {
   color: white;
   padding: 15px 20px;
   border-radius: 10px;
-  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  transition: all 0.3s;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-image: white;
   
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -268,13 +275,13 @@ main {
   &:active {
     transform: translateY(2px);
   }
-
 }
 
 .rainbow-mode {
   font-weight: 600;
   background-color: white;
   color: $text;
+  transition: 0.3s;
 }
 
 .rainbow-mode.active {
